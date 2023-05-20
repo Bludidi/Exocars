@@ -18,7 +18,7 @@ const carsSlice = createSlice({
       builder.addCase(fecthCars.fulfilled, (state, action) => {
         state.status = 'ok';
         state.cars = action.payload;
-      })
+      }),
     );
   },
 });
