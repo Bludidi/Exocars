@@ -21,7 +21,7 @@ const DisplayCars = () => {
 
   return (
     <>
-      <h1>List of cars</h1>
+      <h1>List of available cars</h1>
       {status === 'ok' && (
         <table>
           <thead>
@@ -39,8 +39,11 @@ const DisplayCars = () => {
                 <td>{car.name}</td>
                 <td>{car.color}</td>
                 <td>{car.description}</td>
-                <td>{car.avaible ? 'Yes' : 'No'}</td>
-                <td>{car.price}</td>
+                <td>{car.available ? 'Yes' : 'No'}</td>
+                <td>
+                  $
+                  {parseFloat(car.price).toFixed(2)}
+                </td>
               </tr>
             ))}
           </tbody>
