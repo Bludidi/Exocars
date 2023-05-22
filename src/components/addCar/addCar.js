@@ -8,6 +8,7 @@ const AddCar = () => {
   const [description, setDescription] = useState('');
   const [available, setAvailable] = useState();
   const [price, setPrice] = useState(0);
+  const [image, setImage] = useState(null);
 
   const createNewCar = () => ({
     name,
@@ -15,6 +16,7 @@ const AddCar = () => {
     description,
     available,
     price,
+    image,
   });
 
   const dispatch = useDispatch();
@@ -22,7 +24,7 @@ const AddCar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const car = createNewCar(name, color, description, available, price);
+    const car = createNewCar();
 
     dispatch(addCar(car));
     setName('');
@@ -30,20 +32,33 @@ const AddCar = () => {
     setDescription('');
     setAvailable();
     setPrice(0);
+    setImage(null);
   };
 
   const handleToggle = () => {
     setAvailable(!available);
   };
+
+  const handleImageUpload = (e) => {
+    const selectedImage = e.target.files[0];
+    setImage(selectedImage);
+  };
   return (
     <div className="container">
-      <form onSubmit={handleSubmit}>
+      <div className="heading"><h2>Add your car below</h2></div>
+      <form className="add-car-form" onSubmit={handleSubmit}>
         <input
           placeholder="Name"
           type="text"
           name="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          required
+        />
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleImageUpload}
           required
         />
         <input
@@ -54,20 +69,26 @@ const AddCar = () => {
           onChange={(e) => setColor(e.target.value)}
           required
         />
-        <input
+        <textarea
           placeholder="Description"
-          type="text"
           name="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           required
         />
-        <label htmlFor="toggleSwitch">Available</label>
-        <input type="checkbox" checked={available} onChange={handleToggle} />
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+        <label htmlFor="availableInput">Available</label>
         <input
+          id="available"
+          type="checkbox"
+          checked={available}
+          onChange={handleToggle}
+        />
+        <input
+          id="price"
           placeholder="Price"
           type="number"
-          step={2}
+          step="0.01"
           value={price}
           onChange={(e) => setPrice(parseFloat(e.target.value))}
           required
@@ -78,4 +99,4 @@ const AddCar = () => {
   );
 };
 
-export default addCar;
+export default AddCar;
