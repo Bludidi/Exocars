@@ -162,7 +162,7 @@ To run tests, run the following command:
 </a> <br /> <br /><br />
 
 
-**Tarike Bouari** <br /><br />
+👤 **Tarike Bouari** <br /><br />
 <a href="https://github.com/tarikbouari">
   <img src="https://img.shields.io/github/followers/tarikbouari?label=Follow%20%40tarikbouari&style=social" alt="GitHub Follow">
 </a> <br />
@@ -173,10 +173,15 @@ To run tests, run the following command:
   <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=social&logo=linkedin&logoColor=blue" alt="LinkedIn">
 </a> <br /> <br /><br />
 
-👤 **Author2**
-- GitHub: [@user](https://github.com/tarikbouar)
-- Twitter: [@user](https://twitter.com/tarikbouar)
-- LinkedIn: [user](https://linkedin.com/tarikbouar)
+👤 **Asif Amin**
+
+<a href="https://github.com/asifaminisonline">
+  <img src="https://img.shields.io/github/followers/asifaminisonline?label=Follow%20%40asifaminisonline&style=social" alt="GitHub Follow">
+</a> <br />
+
+<a href="https://twitter.com/AminAmi53306702">
+  <img src="https://img.shields.io/twitter/follow/AminAmi53306702?label=Follow%20%40AminAmi53306702&style=social" alt="Twitter Follow">
+</a> <br /><br />
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
