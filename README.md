@@ -109,7 +109,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone git@github.com/Bludidi/Exocars-front-end.git
+  git clone https://github.com/Bludidi/Exocars-front-end.git
   cd Exocars-front-end
 ```
 
@@ -118,50 +118,26 @@ Clone this repository to your desired folder:
 
 Install this project with:
 
-<!--
-Example command:
-
 ```sh
-  cd my-project
-  gem install
+  npm install # to install dependancies
 ```
---->
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
-
 ```sh
-  rails server
+  npm start 
 ```
---->
+
 
 ### Run tests
 
 To run tests, run the following command:
 
-<!--
-Example command:
-
 ```sh
-  bin/rails test test/models/article_test.rb
+  npm test
 ```
---->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -209,11 +185,8 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
+- [ ] **[3D car display ]**
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -231,9 +204,9 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
 
-If you like this project...
+
+If you like this project kindly add a star to it.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -241,9 +214,10 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
 
-I would like to thank...
+We would like to thank Microverse for a wondeful curriculumn, peers also known as Micronauts for the support and motivation in this journey. 
+**Murat Korkmaz** from Behance for inspiring this project design
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
