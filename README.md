@@ -1,4 +1,4 @@
-# EXOCARS 
+# EXOCARS-FRONTEND
 
 - [Link to backend API](https://github.com/tarikbouari/Exocars-Backend) 
 - [Link to backend Kanban board](https://github.com/users/tarikbouari/projects/4)
