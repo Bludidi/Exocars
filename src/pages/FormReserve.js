@@ -1,50 +1,45 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import toast from 'react-hot-toast';
-import { reserveCar } from '../redux/ReservationSlice';
+import axios from 'axios';
+import Url from '../api/Urlapi';
+import { getCars } from '../redux/CarSlice';
 
 const ReserveForm = () => {
-  const cars = useSelector((state) => state.car.data);
   const username = window.localStorage.getItem('name');
   const userId = window.localStorage.getItem('userId');
 
-  const [data, setData] = useState({
-    car_id: '',
-    date: '',
-  });
+  const cars = useSelector((state) => state.car.data);
+  const [date, setDate] = useState('');
+  const [car, setCar] = useState([0, '']);
+  const [errMsg, setErrMsg] = useState('');
 
   const dispatch = useDispatch();
-  const [user_id, setUname] = useState(userId);
-  const { date, car_id } = data;
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  useEffect(() => {
+    dispatch(getCars());
+  }, [dispatch]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const fData = {
-      car_id, user_id, date,
-    };
-    dispatch(reserveCar(fData));
-    toast.success('Car reserved Successfully');
-    setData(
-      {
-        car_id: '',
-        date: '',
-      },
-    );
-    setUname('');
+    if (date === '') return;
+    try {
+      await axios.post(`${Url}/api/v1/users/${userId}/reservations`, { user_id: userId, car_id: car, picking_date: date });
+      setCar(0);
+      setDate('');
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg('No Server Response');
+      } else {
+        setErrMsg('Registration Failed');
+      }
+    }
   };
-  const newDate = new Date().toISOString().split('T')[0];
+
   return (
     <div>
       <h2 className="text-center">Reserve Car</h2>
       <hr className="border-2 w-full mb-3" />
+      <p className={errMsg ? 'errmsg' : 'offscreen'} aria-live="assertive">{errMsg}</p>
       <form onSubmit={handleSubmit} className="scale-x-75 ">
         <div className="mb-6">
           <label
@@ -53,7 +48,7 @@ const ReserveForm = () => {
           >
             Car Name
           </label>
-          <select name="car_id" onChange={handleChange} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500 dark:shadow-sm-light">
+          <select name="car_id" onChange={(e) => setCar(e.target.value)} value={car} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500 dark:shadow-sm-light">
             <option value="1">Select car</option>
             {
           cars.map((val) => (
@@ -86,11 +81,11 @@ const ReserveForm = () => {
             Booking Date
           </label>
           <input
-            type="text"
+            type="date"
             id="date"
             name="date"
-            min={newDate}
-            onChange={handleChange}
+            // min={newDate}
+            onChange={(e) => setDate(e.target.value)}
             value={date}
             className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500 dark:shadow-sm-light"
             required
