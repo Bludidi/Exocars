@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCars, deleteCar } from '../redux/CarSlice';
+import Load from '../components/Load';
 
 const DeleteCar = () => {
   const dispatch = useDispatch();
