@@ -63,3 +63,57 @@ export const deleteCar = createAsyncThunk(
     }
   },
 );
+
+const carSlice = createSlice({
+  name: 'car',
+  initialState,
+  reducers: {},
+  extraReducers: {
+    [createCar.pending]: (state) => ({
+      ...state,
+      loading: true,
+    }),
+    [createCar.fulfilled]: (state, action) => ({
+      ...state,
+      loading: false,
+      message: action.payload.message,
+      error: null,
+    }),
+    [createCar.rejected]: (state, action) => ({
+      ...state,
+      loading: false,
+      error: action.payload.error,
+    }),
+    [getCars.pending]: (state) => ({
+      ...state,
+      loading: true,
+    }),
+    [getCars.fulfilled]: (state, action) => ({
+      ...state,
+      loading: false,
+      data: action.payload,
+      error: null,
+    }),
+    [getCars.rejected]: (state, action) => ({
+      ...state,
+      loading: false,
+      error: action.payload.error,
+    }),
+    [deleteCar.pending]: (state) => ({
+      ...state,
+      loading: true,
+    }),
+    [deleteCar.fulfilled]: (state, action) => ({
+      ...state,
+      loading: false,
+      message: action.payload.message,
+      error: null,
+    }),
+    [deleteCar.rejected]: (state, action) => ({
+      ...state,
+      loading: false,
+      error: action.payload.error,
+    }),
+  },
+});
+export default carSlice.reducer;
