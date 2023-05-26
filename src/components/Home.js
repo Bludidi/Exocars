@@ -22,7 +22,6 @@ const HomeLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
   const { token: { colorBgContainer } } = theme.useToken();
   const navigate = useNavigate();
-  const userRole = localStorage.getItem('role');
   const deleteData = () => {
     window.localStorage.removeItem('token');
     window.localStorage.removeItem('userId');
@@ -63,7 +62,7 @@ const HomeLayout = () => {
             },
           ]}
         />
-        {userRole === 'admin' && (
+
         <Menu
           theme="dark"
           mode="inline"
@@ -82,7 +81,7 @@ const HomeLayout = () => {
             },
           ]}
         />
-        )}
+
         <div
           className={`absolute bottom-5 w-full ${!collapsed ? 'flex justify-center items-center' : 'md:hidden'}`}
         >
