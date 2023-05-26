@@ -27,3 +27,21 @@ export const createCar = createAsyncThunk(
     }
   },
 );
+
+export const getCars = createAsyncThunk(
+  'car/getCars',
+  async (car, { rejectWithValue }) => {
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const { data } = await axios.get(`${Url}/api/v1/cars`, car, config);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  },
+);
