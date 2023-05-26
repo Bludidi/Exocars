@@ -21,3 +21,18 @@ const Addcar = () => {
       [name]: value,
     }));
   };
+  const submitEventHandler = (event) => {
+    event.preventDefault();
+    if (!name || !price || !color || !description || !image) {
+      toast.error('Fields should not be empty');
+    }
+    dispatch(createCar(inputData));
+    toast.success('car added successfully');
+    setInputData({
+      name: '',
+      image: '',
+      color: '',
+      description: '',
+      price: 0,
+    });
+  };
