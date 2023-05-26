@@ -11,4 +11,11 @@ const DeleteCar = () => {
       setCars(response.payload);
     });
   }, [dispatch]);
+
+  const handleDelete = (id) => {
+    dispatch(deleteCar(id)).then(() => {
+      const updatedCars = cars.filter((car) => car.id !== id);
+      setCars(updatedCars);
+    });
+  };
 }
