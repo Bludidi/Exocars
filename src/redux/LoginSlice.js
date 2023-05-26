@@ -11,10 +11,7 @@ export const loginUser = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       };
-
       const { data } = await axios.post(`${Url}/users/sign_in`, user, config);
-
-      console.log(data);
 
       const {
         jti, id, name,
@@ -23,8 +20,6 @@ export const loginUser = createAsyncThunk(
       localStorage.setItem('token', jti);
       localStorage.setItem('userId', id);
       localStorage.setItem('name', name);
-
-      console.log(data);
 
       return data;
     } catch (error) {

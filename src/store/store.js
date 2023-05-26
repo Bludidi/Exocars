@@ -3,7 +3,7 @@ import registerReducer from '../redux/RegistrationSlice';
 import loginReducer from '../redux/LoginSlice';
 import carReducer from '../redux/CarSlice';
 import singleCarReducer from '../redux/SingleCarSlice';
-import { reserveCarReducer } from '../redux/ReservationSlice';
+import { reservedCarsReducer } from '../redux/ReservationSlice';
 
 export default configureStore({
   reducer: {
@@ -11,6 +11,7 @@ export default configureStore({
     login: loginReducer,
     car: carReducer,
     singleCar: singleCarReducer,
-    reservedCar: reserveCarReducer,
+    reservedCar: reservedCarsReducer,
   },
+  // middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });

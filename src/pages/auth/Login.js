@@ -27,7 +27,6 @@ const Login = () => {
       toast.error('Please fill all the fields');
     } else {
       const response = await dispatch(loginUser(userData));
-      console.log(response);
       if (response.type === 'login/loginUser/fulfilled') {
         toast.success("You're logged in successfully");
         navigate('/');
@@ -44,8 +43,8 @@ const Login = () => {
 
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
-      <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-rose-600/40 ring ring-2 ring-orange-600 lg:max-w-xl">
-        <h3 className="text-2xl font-semibold text-center text-orange-500 underline uppercase decoration-wavy">
+      <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-rose-600/40 ring ring-2 ring-green-600 lg:max-w-xl">
+        <h3 className="text-2xl font-semibold text-center text-green-500 underline uppercase decoration-wavy">
           Login form
         </h3>
         <form className="mt-6" onSubmit={handleSubmit}>
@@ -100,7 +99,7 @@ const Login = () => {
           <div className="mt-6">
             <button
               type="submit"
-              className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-orange-500 rounded-md hover:bg-orange-600 focus:outline-none focus:bg-orange-600"
+              className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-green-500 rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600"
             >
               Login Now
             </button>

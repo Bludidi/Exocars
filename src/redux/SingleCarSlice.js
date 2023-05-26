@@ -11,8 +11,6 @@ const initialState = {
 
 const token = localStorage.getItem('token');
 
-console.log(token);
-
 export const getCar = createAsyncThunk(
   'car/getCar',
   async (id, { rejectWithValue }) => {
@@ -23,8 +21,6 @@ export const getCar = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(data);
-
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data);
