@@ -42,7 +42,6 @@ export const getCars = createAsyncThunk(
         },
       };
       const { data } = await axios.get(`${Url}/api/v1/cars`, car, config);
-      console.log(data);
 
       return data;
     } catch (error) {
@@ -61,7 +60,7 @@ export const deleteCar = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       };
-      const { data } = await axios.delete(`${Url}api/v1/cars/${id}`, config);
+      const { data } = await axios.delete(`${Url}/api/v1/cars/${id}`, config);
 
       return data;
     } catch (error) {
