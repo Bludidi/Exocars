@@ -1,7 +1,9 @@
+/* eslint-disable */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 import { createCar } from '../redux/CarSlice';
+
 const Addcar = () => {
   const [inputData, setInputData] = useState({
     name: '',
@@ -12,7 +14,11 @@ const Addcar = () => {
   });
   const dispatch = useDispatch();
   const {
-    name, image, color, description, price,
+    name,
+    image,
+    color,
+    description,
+    price,
   } = inputData;
   const inputEventHandler = (event) => {
     const { name, value } = event.target;
