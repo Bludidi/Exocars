@@ -10,3 +10,14 @@ const Addcar = () => {
     description: '',
     price: 0,
   });
+  const dispatch = useDispatch();
+  const {
+    name, image, color, description, price,
+  } = inputData;
+  const inputEventHandler = (event) => {
+    const { name, value } = event.target;
+    setInputData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
