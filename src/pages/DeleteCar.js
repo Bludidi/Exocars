@@ -27,7 +27,7 @@ const DeleteCar = () => {
        : (
          <div>
            <h1 className="text-center text-green-600 font-bold capitalize font-sans text-base md:text-2xl mb-3">
-             Delete Tutor
+             Delete Car
            </h1>
            <hr className="border-2 w-25 bg-green-200" />
            <div className="flex gap-4 mt-4 md:flex-row flex- overflow-auto drop-shadow-lg hover:drop-shadow-full shadow-lg my-scroll">
