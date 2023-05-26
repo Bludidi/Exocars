@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 const NotFound = () => (
   <div>
     <div className="flex items-center justify-center w-screen h-screen">

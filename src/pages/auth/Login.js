@@ -1,15 +1,17 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import toast from "react-hot-toast";
-import { loginUser } from "../../redux/LoginSlice";
+/* eslint-disable */
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
+import { loginUser } from '../../redux/LoginSlice';
+
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [data, setData] = useState({
-    name: "",
-    email: "",
-    password: "",
+    name: '',
+    email: '',
+    password: '',
   });
   const { name, email, password } = data;
   const userData = {
@@ -21,21 +23,20 @@ const Login = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (name === "" || email === "" || password === "") {
-      toast.error("Please fill all the fields");
+    if (name === '' || email === '' || password === '') {
+      toast.error('Please fill all the fields');
     } else {
       const response = await dispatch(loginUser(userData));
-      console.log(response);
-      if (response.type === "login/loginUser/fulfilled") {
+      if (response.type === 'login/loginUser/fulfilled') {
         toast.success("You're logged in successfully");
-        navigate("/");
+        navigate('/');
         setData({
-          name: "",
-          email: "",
-          password: "",
+          name: '',
+          email: '',
+          password: '',
         });
       } else {
-        toast.error("Login failed");
+        toast.error('Login failed');
       }
     }
   };

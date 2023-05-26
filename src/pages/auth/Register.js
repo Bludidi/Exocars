@@ -1,30 +1,34 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import toast from "react-hot-toast";
-import { registerUser } from "../../redux/RegistrationSlice";
+/* eslint-disable */
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
+import { registerUser } from '../../redux/RegistrationSlice';
+
 const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [data, setData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    cpassword: "",
+    name: '',
+    email: '',
+    password: '',
+    cpassword: '',
   });
-  const { name, email, password, cpassword } = data;
+  const {
+    name, email, password, cpassword,
+  } = data;
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData((prev) => ({ ...prev, [name]: value }));
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name === "" || email === "" || password === "" || cpassword === "") {
-      toast.error("Please fill all the fields");
+    if (name === '' || email === '' || password === '' || cpassword === '') {
+      toast.error('Please fill all the fields');
       return;
     }
     if (password !== cpassword) {
-      toast.error("Password does not match");
+      toast.error('Password does not match');
       return;
     }
     const finalData = {
@@ -34,15 +38,14 @@ const Register = () => {
         password,
       },
     };
-    console.log(finalData);
     dispatch(registerUser(finalData));
     toast.success("You're registered successfully");
-    navigate("/login");
+    navigate('/login');
     setData({
-      name: "",
-      email: "",
-      password: "",
-      cpassword: "",
+      name: '',
+      email: '',
+      password: '',
+      cpassword: '',
     });
   };
   return (

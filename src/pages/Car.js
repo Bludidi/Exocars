@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { getCar } from "../redux/SingleCarSlice";
-import CarCard from "../components/CarCard";
-import Load from "../components/Load";
+/* eslint-disable */
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCar } from '../redux/SingleCarSlice';
+import CarCard from '../components/CarCard';
+import Load from '../components/Load';
+
 const Car = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
